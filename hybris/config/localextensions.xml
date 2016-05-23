@@ -17,7 +17,8 @@
 		<extension name="mcc" />
 		<extension name="platformhmc" />												
 		<extension name="mediaconversion" />
-		<extension name="platformbackoffice" /> 											
+		<extension name="platformbackoffice" />
+		<extension name="cuppytrail" />
 		
 		<!-- custom -->
 		<extension name="cuppy" /> 											

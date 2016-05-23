@@ -46,6 +46,32 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 		// performCreateTypes
 	
 	
+		createItemType(
+			"Stadium",
+			"GenericItem",
+			de.hybris.platform.cuppytrail.jalo.Stadium.class,
+			"de.hybris.platform.persistence.cuppytrail_Stadium",
+			false,
+			null,
+			false
+		);
+	
+		createRelationType(
+			"StadiumMatchRelation",
+			null,
+			true
+		);
+	
+		createEnumerationType(
+			"StadiumType",
+			null
+		);
+	
+		createEnumerationType(
+			"StadiumAccess",
+			null
+		);
+	
 	}
 
 	/**
@@ -59,9 +85,86 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 
 	
 	
+				single_createattr_Stadium_code();
+			
+				single_createattr_Stadium_capacity();
+			
+				single_createattr_Stadium_StadiumType();
+			
+		createRelationAttributes(
+			"StadiumMatchRelation", 
+			false, 
+
+			"stadium", 
+			"Stadium", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			false,
+			false,
+			CollectionType.COLLECTION,
+			"matches", 
+			"Match", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			true,
+			false,
+			CollectionType.COLLECTION
+		);
+	
 
 	}
 
+	
+	public void single_createattr_Stadium_code() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"Stadium", 
+					"code",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_Stadium_capacity() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"Stadium", 
+					"capacity",  
+					null,
+					"java.lang.Integer",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_Stadium_StadiumType() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"Stadium", 
+					"StadiumType",  
+					null,
+					"StadiumType",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
 	
 
 
@@ -74,10 +177,191 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 		// performCreateObjects
 	
 	
+		createEnumerationValues(
+			"StadiumType",
+			false,
+			Arrays.asList( new String[] {
+			
+				"openair",
+				"enclosed"
+			} )
+		);
+	
+		createEnumerationValues(
+			"StadiumAccess",
+			true,
+			Arrays.asList( new String[] {
+			
+				"road",
+				"rail",
+				"plane"
+			} )
+		);
+	
+		single_setRelAttributeProperties_StadiumMatchRelation_source();
+	
+		single_setRelAttributeProperties_StadiumMatchRelation_target();
+	
+		connectRelation(
+			"StadiumMatchRelation", 
+			false, 
+			"stadium", 
+			"Stadium", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			"matches", 
+			"Match", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			true,
+			true
+		);
+	
+				{
+				Map customPropsMap = new HashMap();
+				
+				setItemTypeProperties(
+					"Stadium",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
+			single_setAttributeProperties_Stadium_code();
+		
+			single_setAttributeProperties_Stadium_capacity();
+		
+			single_setAttributeProperties_Stadium_StadiumType();
+		
+				setDefaultProperties(
+					"StadiumType",
+					true,
+					true,
+					null
+				);
+			
+				setDefaultProperties(
+					"StadiumAccess",
+					true,
+					true,
+					null
+				);
+			
 	}
 
 
 		
+						public void single_setAttributeProperties_Stadium_code() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"Stadium", 
+								"code",
+								true, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_Stadium_capacity() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"Stadium", 
+								"capacity",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_Stadium_StadiumType() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"Stadium", 
+								"StadiumType",
+								false, 
+								em().getEnumerationValue("StadiumType", "openair"),
+								"em().getEnumerationValue(\"StadiumType\", \"openair\")",
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+								public void single_setRelAttributeProperties_StadiumMatchRelation_source() throws JaloBusinessException
+								{
+									
+									Map customPropsMap = new HashMap();
+									
+
+									setAttributeProperties(
+										"Match", 
+										"stadium",
+										false, 
+										null,
+										null,
+										null,
+										true,
+										true,
+										null,
+										customPropsMap,
+										null
+									);
+								}
+							
+								public void single_setRelAttributeProperties_StadiumMatchRelation_target() throws JaloBusinessException
+								{
+									
+									Map customPropsMap = new HashMap();
+									
+
+									setAttributeProperties(
+										"Stadium", 
+										"matches",
+										false, 
+										null,
+										null,
+										null,
+										true,
+										true,
+										null,
+										customPropsMap,
+										null
+									);
+								}
+							
 }
 
 	
