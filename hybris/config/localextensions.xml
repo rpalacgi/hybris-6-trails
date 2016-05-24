@@ -18,9 +18,10 @@
 		<extension name="platformhmc" />												
 		<extension name="mediaconversion" />
 		<extension name="platformbackoffice" />
-		<extension name="cuppytrail" />
-		
+
 		<!-- custom -->
-		<extension name="cuppy" /> 											
-	</extensions>	
+		<extension name="cuppy" />
+		<extension name="cuppytrail" />
+		<extension name="cuppytrailhmc" />
+	</extensions>
 </hybrisconfig>
