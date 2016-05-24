@@ -3,21 +3,10 @@
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
  * --- Generated at May 24, 2016 4:57:31 PM                     ---
  * ----------------------------------------------------------------
- *  
- * [y] hybris Platform
- *  
- * Copyright (c) 2000-2016 SAP SE
- * All rights reserved.
- *  
- * This software is the confidential and proprietary information of SAP
- * Hybris ("Confidential Information"). You shall not disclose such
- * Confidential Information and shall use it only in accordance with the
- * terms of the license agreement you entered into with SAP Hybris.
- *  
  */
-package de.hybris.platform.cuppytrailhmc.jalo;
+package com.hybris.cuppytrailbackoffice.jalo;
 
-import de.hybris.platform.cuppytrailhmc.constants.CuppytrailhmcConstants;
+import com.hybris.cuppytrailbackoffice.constants.CuppytrailbackofficeConstants;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.extension.Extension;
@@ -25,10 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Generated class for type <code>CuppytrailhmcManager</code>.
+ * Generated class for type <code>CuppytrailbackofficeManager</code>.
  */
 @SuppressWarnings({"deprecation","unused","cast","PMD"})
-public abstract class GeneratedCuppytrailhmcManager extends Extension
+public abstract class GeneratedCuppytrailbackofficeManager extends Extension
 {
 	protected static final Map<String, Map<String, AttributeMode>> DEFAULT_INITIAL_ATTRIBUTES;
 	static
@@ -51,7 +40,7 @@ public abstract class GeneratedCuppytrailhmcManager extends Extension
 	@Override
 	public String getName()
 	{
-		return CuppytrailhmcConstants.EXTENSIONNAME;
+		return CuppytrailbackofficeConstants.EXTENSIONNAME;
 	}
 	
 }

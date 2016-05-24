@@ -24,6 +24,9 @@ hybris/data/
 hybris/log/
 hybris/temp/
 
+*hmc.jar
+gensrc/
+
 classes/
 .settings/
 .project
