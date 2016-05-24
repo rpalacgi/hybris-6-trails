@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<configuration xmlns="hybris.de/schemas/hmc/generic">
+    <explorertree>
+        <group name="cuppytrailgroup">
+            <typeref type="Stadium"/>
+        </group>
+    </explorertree>
+
+    <type name="Stadium" mode="append">
+        <organizer>
+            <search mode="replace">
+                <condition attribute="code"/>
+                <condition attribute="capacity"/>
+                <condition attribute="mathces"/>
+            </search>
+            <result>
+                <listview mode="replace">
+                    <itemlayout>
+                        <attribute name="code"/>
+                        <attribute name="capacity"/>
+                        <attribute name="mathces"/>
+                    </itemlayout>
+                </listview>
+            </result>
+            <editor>
+                <essentials>
+                    <listlayout>
+                        <attribute name="code"/>
+                    </listlayout>
+                </essentials>
+                <tab name="tab.cuppytrail">
+                    <section name="selection.cuppytrail">
+                        <listlayout>
+                            <listlayout>
+                                <attribute name="code"/>
+                                <attribute name="capacity"/>
+                            </listlayout>
+                        </listlayout>
+                    </section>
+                </tab>
+            </editor>
+        </organizer>
+    </type>
+</configuration>
