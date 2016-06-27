@@ -31,8 +31,8 @@
 
     <relations>
         <relation code="StadiumMatchRelation" localized="false" generate="true" autocreate="true">
-            <sourceElement type="Stadium" qualifier="stadium" cardinality="one"/>
-            <targetElement type="Match" qualifier="matches" cardinality="many" />
+            <sourceElement type="Stadium" qualifier="stadium" cardinality="one" />
+            <targetElement type="Match" qualifier="matches" cardinality="many"/>
         </relation>
     </relations>
 
