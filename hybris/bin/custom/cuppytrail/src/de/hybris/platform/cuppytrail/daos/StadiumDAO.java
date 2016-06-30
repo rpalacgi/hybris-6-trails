@@ -9,6 +9,6 @@ public interface StadiumDAO {
 
 	List<StadiumModel> findStadiums();
 
-	List<StadiumModel> fundStadiumByCode(String code);
+	StadiumModel getStadiumByCode(String code);
 
 }

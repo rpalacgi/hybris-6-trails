@@ -8,7 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
