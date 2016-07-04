@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<testclasses>
-    <cuppytrail>
-        <testclass>de.hybris.platform.cuppytrail.constants.TestData</testclass>
-        <testclass>de.hybris.platform.cuppytrail.utils.PredicateMatcher</testclass>
-        <testclass>de.hybris.platform.cuppytrail.daos.StadiumDAOIntegrationTest</testclass>
-        <testclass>de.hybris.platform.cuppytrail.services.DefaultStadiumServiceIntegrationTest</testclass>
-        <testclass>de.hybris.platform.cuppytrail.jalo.CuppytrailTest</testclass>
-    </cuppytrail>
-</testclasses>
+<?xml version="1.0" encoding="utf-8"?><testclasses><cuppytrail><testclass>de.hybris.platform.cuppytrail.constants.TestData</testclass><testclass>de.hybris.platform.cuppytrail.services.impl.DefaultStadiumServiceUnitTest</testclass><testclass>de.hybris.platform.cuppytrail.utils.PredicateMatcher</testclass><testclass>de.hybris.platform.cuppytrail.daos.StadiumDAOIntegrationTest</testclass><testclass>de.hybris.platform.cuppytrail.services.DefaultStadiumServiceIntegrationTest</testclass><testclass>de.hybris.platform.cuppytrail.jalo.CuppytrailTest</testclass></cuppytrail></testclasses>
