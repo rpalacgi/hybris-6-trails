@@ -54,6 +54,4 @@ public class DefaultStadiumFacadeIntegrationTest extends ServicelayerTransaction
 		assertEquals(stadiumData.getName(), TestData.StadiumData.STADIUM_NAME);
 		assertEquals(stadiumData.getCapacity(), String.valueOf(TestData.StadiumData.STADIUM_CAPACITY));
 	}
-	}
-
 }
