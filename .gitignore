@@ -2,6 +2,7 @@
 idea-module-files/
 *.iml
 
+hybris-apidoc/
 hybris/bin/ext-accelerator/
 hybris/bin/ext-addon/
 hybris/bin/ext-atdd/
