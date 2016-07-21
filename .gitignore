@@ -42,7 +42,11 @@ installer/JavaVersionChecker
 installer/plugins.conf
 installer/README.md
 installer/settings.gradle
-installer/JavaVersionChecker
+installer/JavaVersionChecker.java
+config/backup/
+config/solr/
+
+gensrc/
 
 local.properties
 localextensions.xml
