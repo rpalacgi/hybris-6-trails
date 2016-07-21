@@ -1,0 +1,86 @@
+def config = {
+	localProperties {
+		property 'recaptcha.publickey', ''
+		property 'recaptcha.privatekey', ''
+		property 'googleApiKey', ''
+		property 'website.powertools.http', 'http://powertools.local:9001/yb2bacceleratorstorefront'
+		property 'website.powertools.https', 'https://powertools.local:9002/yb2bacceleratorstorefront'
+    }
+
+    extensions {
+        extName 'mcc'
+  	    extName 'backoffice'
+  	    extName 'commercesearchbackoffice'
+        extName 'b2bcommercebackoffice'
+        extName 'commerceservicesbackoffice'
+  		extName 'solrfacetsearchbackoffice'
+        extName 'b2badmincockpit'
+
+		extName 'btgcockpit'
+
+ 		extName 'yacceleratorcockpits'
+		extName 'yacceleratorinitialdata'
+		extName 'yacceleratorfulfilmentprocess'
+		extName 'yaddon'
+		extName 'ycommercewebservices'
+
+		extName 'powertoolsstore'
+        extName 'solrserver'
+
+		extName 'acceleratorwebservicesaddon'
+        extName 'b2bacceleratoraddon'
+        extName 'commerceorgaddon'
+		extName 'b2bpunchoutaddon'
+        extName 'secureportaladdon'
+        extName 'savedorderformsoccaddon'
+        extName 'b2boccaddon'
+        extName 'accountsummaryaddon'
+        extName 'assistedservicestorefront'
+        extName 'captchaaddon'
+		
+		extName 'customerticketingaddon'
+		extName 'customersupportbackoffice'
+    }
+}
+
+task setup << {
+    apply plugin: 'installer-platform-plugin'
+    apply plugin: 'installer-addon-plugin'
+    def pl = platform(config)
+    pl.setup()
+
+	pl.executeAntTarget 'extgen -Dinput.template=yacceleratorstorefront -Dinput.name=yb2bacceleratorstorefront -Dinput.package=de.hybris.platform.yb2bacceleratorstorefront'
+
+	pl.extensions {
+		extName 'yb2bacceleratorstorefront'
+	}
+	pl.setup()
+
+    pl.project.addons {
+        names "b2bacceleratoraddon,commerceorgaddon,b2bpunchoutaddon,secureportaladdon,accountsummaryaddon,assistedservicestorefront,captchaaddon,customerticketingaddon"
+        template "yacceleratorstorefront"
+        storeFronts "yb2bacceleratorstorefront"
+        platform pl
+    }
+
+    pl.project.addons {
+        names "acceleratorwebservicesaddon,b2boccaddon,savedorderformsoccaddon"
+        template "ycommercewebservices"
+        storeFronts "ycommercewebservices"
+        platform pl
+    }
+}
+
+task initialize << {
+    apply plugin: 'installer-platform-plugin'
+    def pl = platform(config)
+    pl.build()
+    pl.initialize()
+}
+
+
+task start << {
+    apply plugin: 'installer-platform-plugin'
+    def pl = platform(config)
+    pl.start()
+}

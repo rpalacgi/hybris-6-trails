@@ -1,0 +1,86 @@
+def config = {
+    localProperties {
+        property 'recaptcha.publickey', ''
+        property 'recaptcha.privatekey', ''
+        property 'commerceservices.default.desktop.ui.experience', 'responsive'
+		property 'smarteditaddon.dynamicattribute.enabled', 'true'
+		property 'yacceleratorstorefront.generic.cms.component.controller.authorized.group', 'customergroup'
+    }
+
+    extensions {
+        extName 'acceleratorcms'
+        extName 'acceleratorfacades'
+        extName 'acceleratorservices'
+        extName 'acceleratorstorefrontcommons'
+        extName 'addonsupport'
+        extName 'admincockpit'
+        extName 'basecommerce'
+        extName 'btg'
+        extName 'cockpit'
+        extName 'cms2'
+        extName 'cms2lib'
+        extName 'cmswebservices'
+        extName 'cmscockpit'
+        extName 'commercefacades'
+        extName 'commerceservices'
+        extName 'cscockpit'
+        extName 'customerreview'
+        extName 'apparelstore'
+        extName 'electronicsstore'
+        extName 'hmc'
+        extName 'ldap'
+        extName 'npmancillary'
+        extName 'oauthauthorizationserver'
+        extName 'payment'
+        extName 'platformhmc'
+        extName 'productcockpit'
+        extName 'promotions'
+        extName 'reportcockpit'
+        extName 'smartedit'
+        extName 'smarteditaddon'
+        extName 'cmssmartedit'
+        extName 'springintegrationlibs'
+        extName 'solrfacetsearch'
+        extName 'solrfacetsearchhmc'
+        extName 'solrserver'
+        extName 'ticketsystem'
+        extName 'voucher'
+        extName 'virtualjdbc'
+        extName 'webservicescommons'
+        extName 'yacceleratorcore'
+        extName 'yacceleratorfacades'
+        extName 'yacceleratorfulfilmentprocess'
+        extName 'yacceleratorinitialdata'
+        extName 'yacceleratorstorefront'
+        extName 'yaddon'
+		extName 'previewwebservices'
+        extName 'smarteditwebservices'
+    }
+}
+
+task setup << {
+    apply plugin: 'installer-platform-plugin'
+    apply plugin: 'installer-addon-plugin'
+    def pl = platform(config)
+    pl.setup()
+    
+    pl.project.addons {
+        names "smarteditaddon"
+        b2c "yacceleratorstorefront"
+        platform pl
+    }
+}
+
+task initialize << {
+    apply plugin: 'installer-platform-plugin'
+    def pl = platform(config)
+    pl.build()
+    pl.initialize()
+}
+
+
+task start << {
+    apply plugin: 'installer-platform-plugin'
+    def pl = platform(config)
+    pl.start()
+}
