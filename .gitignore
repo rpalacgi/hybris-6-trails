@@ -52,7 +52,6 @@ local.properties
 localextensions.xml
 
 *hmc.jar
-gensrc/
 
 classes/
 .settings/
