@@ -1,0 +1,52 @@
+package recipes.cuppy_trails
+
+def config = {
+		localProperties {
+
+			property 'db.url', 'jdbc:mysql://localhost/hybris_b2c_acc'
+			property 'db.username', 'b2c_user'
+			property 'db.password', 'hybris'
+			property 'db.driver', 'com.mysql.jdbc.Driver'
+			property 'tomcat.debugjavaoptions', '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 ' +
+					'-XXaltjvm=dcevm -javaagent:"/home/philip/Projects/utils/hotswap/hotswap-agent.jar"=disablePlugin=ZK'
+			property 'servicelayer.prefetch', 'literal'
+		}
+
+		extensions {
+
+			extName 'admincockpit'
+			extName 'backoffice'
+			extName 'cockpit'
+			extName 'hmc'
+			extName 'mcc'
+			extName 'platformhmc'
+			extName 'mediaconversion'
+			extName 'platformbackoffice'
+
+			extName 'cuppy'
+			extName 'cuppytrail'
+			extName 'cuppytrailhmc'
+			extName 'cuppytrailbackoffice'
+		}
+}
+
+task setup << {
+		apply plugin: 'installer-platform-plugin'
+	def pl = platform(config)
+		pl.setup()
+
+}
+
+task initialize << {
+		apply plugin: 'installer-platform-plugin'
+		def pl = platform(config)
+		pl.build()
+		pl.initialize()
+}
+
+
+task start << {
+		apply plugin: 'installer-platform-plugin'
+		def pl = platform(config)
+		pl.start()
+}

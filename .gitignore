@@ -25,6 +25,28 @@ hybris/data/
 hybris/log/
 hybris/temp/
 
+installer/.gradle
+installer/customconfig
+installer/docs
+installer/gradle
+installer/libs
+installer/logs
+installer/work
+installer/build.gradle
+installer/gradlew
+installer/gradlew.bat
+installer/install.bat
+installer/install.sh
+installer/installer_bash_completion.sh
+installer/JavaVersionChecker
+installer/plugins.conf
+installer/README.md
+installer/settings.gradle
+installer/JavaVersionChecker
+
+local.properties
+localextensions.xml
+
 *hmc.jar
 gensrc/
 

@@ -1,0 +1,1 @@
+Cuppy trails receipt

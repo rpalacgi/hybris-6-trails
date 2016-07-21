@@ -1,6 +1,14 @@
 def config = {
 		localProperties {
-			property 'googleApiKey', ''
+
+			property 'build.parallel', 'true'
+			property 'db.url', 'jdbc:mysql://localhost/hybris_b2c_acc'
+			property 'db.username', 'b2c_user'
+			property 'db.password', 'hybris'
+			property 'db.driver', 'com.mysql.jdbc.Driver'
+			property 'tomcat.debugjavaoptions', '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 ' +
+					'-XXaltjvm=dcevm -javaagent:"/home/philip/Projects/utils/hotswap/hotswap-agent.jar"=disablePlugin=ZK'
+			property 'servicelayer.prefetch', 'literal'
 		}
 
 		extensions {
@@ -30,6 +38,8 @@ def config = {
 			extName 'droolsruleengineservices'
 			extName 'promotionenginesamplesaddon'
 
+			extName 'commerceorgaddon'
+
 		}
 }
 
@@ -40,7 +50,7 @@ task setup << {
 		pl.setup()
 
 		pl.project.addons {
-				names "liveeditaddon,promotionenginesamplesaddon"
+				names "liveeditaddon,promotionenginesamplesaddon,commerceorgaddon"
 				template "yacceleratorstorefront"
 				storeFronts "yacceleratorstorefront"
 				platform pl
