@@ -10,14 +10,11 @@ import de.hybris.platform.servicelayer.interceptor.PrepareInterceptor;
 import de.hybris.platform.servicelayer.interceptor.ValidateInterceptor;
 import org.springframework.beans.factory.annotation.Required;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Objects;
 import java.util.function.Predicate;
 
 import static de.hybris.platform.servicelayer.model.ModelContextUtils.getItemModelContext;
-import static java.util.Objects.nonNull;
-import static org.bouncycastle.asn1.x500.style.RFC4519Style.st;
 
 
 public class CapacityInterceptor implements ValidateInterceptor<StadiumModel>, PrepareInterceptor<StadiumModel> {
@@ -26,17 +23,8 @@ public class CapacityInterceptor implements ValidateInterceptor<StadiumModel>, P
 
 	private int stadiumMaxCapacity;
 
-	private Predicate<StadiumModel> maxCapacityCheck;
-
 	@Resource
 	private EventService eventService;
-
-	@PostConstruct
-	private void init() {
-		maxCapacityCheck =  stadium -> nonNull(stadium.getCapacity()) &&stadium.getCapacity() > stadiumMaxCapacity;
-	}
-
-
 
 	@Override
 	public void onPrepare(StadiumModel stadium, InterceptorContext ctx) throws InterceptorException {
@@ -44,7 +32,6 @@ public class CapacityInterceptor implements ValidateInterceptor<StadiumModel>, P
 			eventService.publishEvent(new CapacityEvent(stadium.getCapacity(), stadium.getCode()));
 		}
 	}
-
 
 	private boolean hasBecomeBig(final StadiumModel stadium, final InterceptorContext ctx) {
 		Predicate<Integer> checkCapacity = capacity ->
@@ -64,7 +51,8 @@ public class CapacityInterceptor implements ValidateInterceptor<StadiumModel>, P
 
 	@Override
 	public void onValidate(StadiumModel stadium, InterceptorContext ctx) throws InterceptorException {
-		if (maxCapacityCheck.test(stadium)) {
+		Integer capacity = stadium.getCapacity();
+		if (Objects.nonNull(capacity) && capacity >= stadiumMaxCapacity) {
 			throw new InterceptorException(
 					String.format("Capacity on the stadium '%s' is to large[Actual: %d, Max: %d]",
 								  stadium.getCode(), stadium.getCapacity(), stadiumMaxCapacity));
@@ -72,15 +60,23 @@ public class CapacityInterceptor implements ValidateInterceptor<StadiumModel>, P
 	}
 
 	@Required
-	private void setStadiumBigCapacity(int stadiumBigCapacity) {
+	public void setStadiumBigCapacity(int stadiumBigCapacity) {
 		Preconditions.checkArgument(stadiumBigCapacity > 0, "Stadium capacity must be positive");
 		this.stadiumBigCapacity = stadiumBigCapacity;
 	}
 
+	public int getStadiumBigCapacity() {
+		return stadiumBigCapacity;
+	}
+
 	@Required
-	private void setStadiumMaxCapacity(int stadiumMaxCapacity) {
+	public void setStadiumMaxCapacity(int stadiumMaxCapacity) {
 		Preconditions.checkArgument(stadiumMaxCapacity > 0, "Stadium capacity must be positive");
 		this.stadiumMaxCapacity = stadiumMaxCapacity;
+	}
+
+	public int getStadiumMaxCapacity() {
+		return stadiumMaxCapacity;
 	}
 
 
