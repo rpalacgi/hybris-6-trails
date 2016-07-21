@@ -45,7 +45,7 @@ installer/settings.gradle
 installer/JavaVersionChecker.java
 config/backup/
 config/solr/
-
+*_bof.jar
 gensrc/
 
 local.properties

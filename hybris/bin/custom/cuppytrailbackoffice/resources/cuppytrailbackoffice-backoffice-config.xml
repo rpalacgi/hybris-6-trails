@@ -14,7 +14,7 @@
 <config xmlns="http://www.hybris.com/cockpit/config">
 
 	<context component="explorer-tree" merge-by="module">
-		<n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+		<n:explorer-tree xmlns:n="http://www.hybris.com/config/cockpitng/explorer-tree.xsd">
 			<n:navigation-node id="Cuppytrail">
 				<n:type-node id="Stadiums" code="Stadium"></n:type-node>
 			</n:navigation-node>
@@ -81,4 +81,6 @@
 			</y:labels>
 		</y:base>
 	</context>
+
+
 </config>
