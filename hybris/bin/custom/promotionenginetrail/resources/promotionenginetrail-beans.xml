@@ -18,10 +18,10 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
 
 	<bean class="de.hybris.promotrail.rao.CustomerReviewRAO">
-		<property name="product" type="de.hybris.platform.promotrail.rao.ProductRAO" />
+		<property name="product" type="de.hybris.platform.ruleengineservices.rao.ProductRAO" />
 	</bean>
 	
-	<bean class="de.hybris.promotrail.rao.UserRAO">
-		<property name="customerReview" type="de.hybris.promotrail.rao.CustomerReviewRAO"/>
+	<bean class="de.hybris.platform.ruleengineservices.rao.UserRAO">
+		<property name="customerReviews" type="java.util.List&lt;de.hybris.promotrail.rao.CustomerReviewRAO&gt;"/>
 	</bean>
 </beans>
